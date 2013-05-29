@@ -1,0 +1,11 @@
+<%console.log(paginate);%>
+<% if(items.attr('length') < paginate.itemsShown()) { %>
+	<a href="javascript://" class="next btn disabled <%=paginate.attr('count') == Infinity ? 'hidden':''%>">
+		<i class="icon-repeat icon-spin"></i> Loading <%=pluralize(item_name, paginate.nextPageItemCount())%>
+	 </a>
+<% }else{ %>
+	<a href="javascript://" class="next btn <%=paginate.canNext() ? '' : 'hidden'%>">
+	     Show Next <%=paginate.nextPageItemCount()%>
+	      <%=pluralize(item_name, paginate.nextPageItemCount())%>
+	 </a>
+ <% } %>
