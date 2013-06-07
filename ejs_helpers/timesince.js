@@ -15,15 +15,15 @@ can.EJS.Helpers.prototype.timeSince = function(date,zone){
 
     // create new Date object for different city
     // using supplied offset
-    if(zone){
+    if(zone && zone.length > 0){
 	    var split = zone.split(':');
-	    var offset  =split[0]+'.'+split[1];	  
+	    var offset  =split[0]+'.'+split[1];
 	    nd = new Date(utc + (3600000* offset));
     }else {
     	nd =  dateObserve.attr('now');
     }
 	var difference = (nd - new Date(date)) / 1000;
-	
+
 	var s;
 	if(difference < 1.2){
 		return "a second ago";
